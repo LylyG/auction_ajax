@@ -21,9 +21,8 @@
   </p>
 
   <h3>Highest bid</h3>
-<%= render 'highest' %>
-
-<%= render 'bid' %>
+    <%= render partial: 'highest', locals: {item: @item}  %>
+    <%= render 'bid' %>
 
 
 </div>
