@@ -18,16 +18,28 @@
 
 $(function(){ $(document).foundation(); });
 
-// var time = new Date().getTime();
-//      $(document.body).bind("mousemove keypress", function(e) {
-//          time = new Date().getTime();
-//      });
+
+// I need to set a timer separately from the
+// thing I want to execute. I think I want to execute
+// create.js.erb
+
+// function executeScript() {
+//      $.getScript('<%"create.js.erb"%>',
+//           blah blah blah
+//           );
+//  }
+// function executeScript() {
+//   $.getScript('<%"create.js.erb"%>', function() {
 //
-//      function refresh() {
-//          if(new Date().getTime() - time >= 60000)
-//              window.location.reload(true);
-//          else
-//              setTimeout(refresh, 10000);
-//      }
-//
-//      setTimeout(refresh, 10000);
+// });
+
+function update()
+{
+   $.get("<%= j(show.html.erb)%>", function(data)
+   {
+       $('#nothing').html(data);
+   });
+}
+$(document).ready(function(){
+window.setInterval('update()', 15000);
+});
