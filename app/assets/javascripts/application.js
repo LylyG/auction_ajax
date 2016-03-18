@@ -33,13 +33,18 @@ $(function(){ $(document).foundation(); });
 //
 // });
 
-function update()
-{
-   $.get("<%= j(show.html.erb)%>", function(data)
-   {
-       $('#nothing').html(data);
-   });
-}
-$(document).ready(function(){
-window.setInterval('update()', 15000);
-});
+function update(){
+  $("#highest-box").load(location.href + " #highest-box");
+};
+
+setInterval("update()", 15000);
+
+//
+// function update(){
+//    $.get("<%= j(show.html.erb)%>", function(data){
+//        $('#highest-box').html(data);
+//    });
+// }
+// $(document).ready(function(){
+// window.setInterval('update()', 15000);
+// });
